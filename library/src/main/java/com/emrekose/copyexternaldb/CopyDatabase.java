@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2016 Emre Köse
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.emrekose.copyexternaldb;
 
 import android.content.Context;
@@ -11,25 +27,36 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-/**
- * Created by emrekose on 24.07.2016.
- */
-
 public class CopyDatabase extends SQLiteOpenHelper {
 
+    // application package name
     public static String PACKAGE_NAME;
+
+    // database package in device
     public static String DB_PATH;
+
+    // extarnal database name in app/src/main/assets folder
     public static String DB_NAME;
 
-    public Context context;
+    // application context
+    public Context mContext;
 
-    private SQLiteDatabase database;
+    private SQLiteDatabase mDatabase;
 
+    /**
+     *
+     * @param context of application context
+     * @param version of extarnal database version
+     * @param databaseName of extarnal database name in assets folder
+     */
     public CopyDatabase(Context context, int version, String databaseName) {
         super(context, databaseName, null, version);
-        this.context = context;
+        
+        mContext = context;
         PACKAGE_NAME = getPackageName(context);
         DB_NAME = databaseName;
+
+        // database path in device
         DB_PATH = "/data/data/" + PACKAGE_NAME + "/databases/";
     }
 
@@ -42,11 +69,14 @@ public class CopyDatabase extends SQLiteOpenHelper {
 
     @Override
     public synchronized void close() {
-        if (database != null && database.isOpen())
-            database.close();
+        if (mDatabase != null && mDatabase.isOpen())
+            mDatabase.close();
         super.close();
     }
 
+    /**
+     * database creating process
+     */
     public void createDatabase() {
         boolean dbExists = checkDatabase();
 
@@ -62,10 +92,13 @@ public class CopyDatabase extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * copy to database in device which copy assets folder database
+     */
     private void copyDatabase() {
 
         try {
-            InputStream input = context.getAssets().open(DB_NAME);
+            InputStream input = mContext.getAssets().open(DB_NAME);
             String outFileName = DB_PATH + DB_NAME;
             OutputStream output = new FileOutputStream(outFileName);
 
@@ -86,6 +119,10 @@ public class CopyDatabase extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * check copy database process after copying to database in device
+     * @return true or false
+     */
     private boolean checkDatabase() {
         SQLiteDatabase checkDB = null;
         try {
@@ -101,11 +138,19 @@ public class CopyDatabase extends SQLiteOpenHelper {
         return checkDB != null ? true : false;
     }
 
+    /**
+     * copying database open process
+     */
     public void openDatabase() {
         String path = DB_PATH + DB_NAME;
-        database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
+        mDatabase = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
     }
 
+    /**
+     * for static PACKAGE_NAME variables
+     * @param context of application context
+     * @return application package name
+     */
     public String getPackageName(Context context) {
         return context.getPackageName();
     }
