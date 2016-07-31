@@ -35,7 +35,7 @@ public class CopyDatabase extends SQLiteOpenHelper {
     // database package in device
     public static String DB_PATH;
 
-    // extarnal database name in app/src/main/assets folder
+    // external database name in app/src/main/assets folder
     public static String DB_NAME;
 
     // application context
@@ -46,12 +46,12 @@ public class CopyDatabase extends SQLiteOpenHelper {
     /**
      *
      * @param context of application context
-     * @param version of extarnal database version
-     * @param databaseName of extarnal database name in assets folder
+     * @param version of external database version
+     * @param databaseName of external database name in assets folder
      */
     public CopyDatabase(Context context, int version, String databaseName) {
         super(context, databaseName, null, version);
-        
+
         mContext = context;
         PACKAGE_NAME = getPackageName(context);
         DB_NAME = databaseName;

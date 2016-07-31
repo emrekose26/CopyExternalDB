@@ -66,7 +66,7 @@ Create and open database in your activity like below
 ```
 
 
-**If you want to examine demo app** [click here]()
+**If you want to examine demo app** [click here](https://github.com/emrekose26/CopyExternalDB/tree/master/app/src/main/java/com/emrekose/copyexternaldbapp)
 
 ## License
 
