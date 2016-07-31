@@ -15,7 +15,7 @@ import java.io.OutputStream;
  * Created by emrekose on 24.07.2016.
  */
 
-public class CopyDatabaseHelper extends SQLiteOpenHelper {
+public class CopyDatabase extends SQLiteOpenHelper {
 
     public static String PACKAGE_NAME;
     public static String DB_PATH;
@@ -25,7 +25,7 @@ public class CopyDatabaseHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase database;
 
-    public CopyDatabaseHelper(Context context, int version, String databaseName) {
+    public CopyDatabase(Context context, int version, String databaseName) {
         super(context, databaseName, null, version);
         this.context = context;
         PACKAGE_NAME = getPackageName(context);
@@ -35,12 +35,10 @@ public class CopyDatabaseHelper extends SQLiteOpenHelper {
 
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-    }
+    public void onCreate(SQLiteDatabase db) {}
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
     @Override
     public synchronized void close() {

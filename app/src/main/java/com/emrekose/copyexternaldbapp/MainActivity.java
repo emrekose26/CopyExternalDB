@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.emrekose.copyexternaldb.CopyDatabaseHelper;
+import com.emrekose.copyexternaldb.CopyDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // create instance to CopyDatabaseHelper
-        CopyDatabaseHelper dbHelper = new CopyDatabaseHelper(MainActivity.this,1,"test.db");
+        CopyDatabase dbHelper = new CopyDatabase(MainActivity.this,1,"test.db");
 
 
         try {
