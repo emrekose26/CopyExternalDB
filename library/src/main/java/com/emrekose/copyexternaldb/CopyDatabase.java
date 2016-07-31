@@ -77,7 +77,7 @@ public class CopyDatabase extends SQLiteOpenHelper {
     /**
      * database creating process
      */
-    public void createDatabase() {
+    public void createDatabase() throws Exception {
         boolean dbExists = checkDatabase();
 
         if (!dbExists) {
@@ -95,7 +95,7 @@ public class CopyDatabase extends SQLiteOpenHelper {
     /**
      * copy to database in device which copy assets folder database
      */
-    private void copyDatabase() {
+    private void copyDatabase() throws Exception {
 
         try {
             InputStream input = mContext.getAssets().open(DB_NAME);
