@@ -1,6 +1,6 @@
 # CopyExternalDB
 
-  A simple copy external database library for Android
+  A simple copying external database library for Android
   
   [![](https://img.shields.io/badge/platform-android-green.svg)]()
   
@@ -18,7 +18,7 @@ Put your extarnal database in ``app/src/main/assets`` folder
 Create your own ``DatabaseHelper`` like below
     
 ```java
-    public class DatabaseHelper extends CopyDatabase {
+public class DatabaseHelper extends CopyDatabase {
     
     // external db table name
     public static final String TABLE_NAME = "YOUR_DB_TABLE_NAME";
@@ -39,29 +39,20 @@ Create your own ``DatabaseHelper`` like below
         ...
         
         }
-    }
+}
 ```
 
 #### Step 3 
 Create and open database in your activity like below
   
 ```java
-    DatabaseHelper databaseHelper = new DatabaseHelper(Context,DatabaseVersion,"YOUR_DB_NAME");
+DatabaseHelper databaseHelper = new DatabaseHelper(Context,DatabaseVersion,"YOUR_DB_NAME");
     
-    // extarnal database copy process
-    try{
-        databaseHelper.createDatabase();
-    }catch (Exception e){
-        e.printStackTrace();
-        Log.e("DB_ERROR","onCreate(): Could not create and open DB");
-    }
+// extarnal database copy process
+databaseHelper.createDatabase();
 
-    // extarnal database open process
-    try{
-        databaseHelper.openDatabase();
-    }catch (SQLException e){
-            e.printStackTrace();
-    }
+// extarnal database open process
+databaseHelper.openDatabase();
 
 ```
 
