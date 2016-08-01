@@ -21,7 +21,7 @@ Add the dependency
 ```
 dependencies {
     ...
-    compile 'com.github.emrekose26:CopyExternalDB:1.0.0'
+    compile 'com.github.emrekose26:CopyExternalDB:1.0.1'
 }
 ```
 
