@@ -2,10 +2,29 @@
 
   A simple copying external database library for Android
   
-  [![](https://img.shields.io/badge/platform-android-green.svg)]()
+  [![](https://jitpack.io/v/emrekose26/CopyExternalDB.svg)](https://jitpack.io/#emrekose26/CopyExternalDB) [![](https://img.shields.io/badge/platform-android-green.svg)]()
   
 ## Download
-In your ``build.gradle`` file
+
+In your ``build.gradle`` file:
+
+Add it in your root build.gradle at the end of repositories
+```
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}	
+```
+Add the dependency
+```
+dependencies {
+    ...
+    compile 'com.github.emrekose26:CopyExternalDB:1.0.0'
+}
+```
+
 
 
 ## Usage 
