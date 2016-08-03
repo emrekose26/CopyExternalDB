@@ -2,7 +2,9 @@
 
   A simple copying external database library for Android
   
-  [![](https://jitpack.io/v/emrekose26/CopyExternalDB.svg)](https://jitpack.io/#emrekose26/CopyExternalDB) [![](https://img.shields.io/badge/platform-android-green.svg)]()
+  [![](https://jitpack.io/v/emrekose26/CopyExternalDB.svg)](https://jitpack.io/#emrekose26/CopyExternalDB)
+  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-CopyExternalDB-green.svg?style=true)](https://android-arsenal.com/details/1/4048)
+  [![](https://img.shields.io/badge/platform-android-green.svg)]() 
   
 ## Download
 
